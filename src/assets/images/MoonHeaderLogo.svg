@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="33px" height="31px" viewBox="0 0 33 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main-Page" transform="translate(-164.000000, -35.000000)" fill="#D8D8D8">
+            <g id="Logo" transform="translate(164.000000, 35.000000)">
+                <path d="M6.36094854,-1.2201351e-12 C2.48433667,3.09076926 0,7.8538479 0,13.1971745 C0,22.5136537 7.55249868,30.0661524 16.8689779,30.0661524 C24.462921,30.0661524 30.8848715,25.0482561 33,18.147293 C30.1174566,20.4455052 26.4651233,21.8190965 22.4919706,21.8190965 C13.1754913,21.8190965 5.62299265,14.2665978 5.62299265,4.95011858 C5.62299265,3.22758233 5.88117334,1.56534741 6.36094854,-2.45337084e-12 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
