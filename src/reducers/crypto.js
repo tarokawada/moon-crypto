@@ -1,6 +1,6 @@
 const defaultState = {
   list: [],
-  watchList: []
+  watchList: {}
 }
 
 function crypto(state = defaultState, action) {
@@ -17,6 +17,10 @@ function crypto(state = defaultState, action) {
       return Object.assign({}, state, {
         watchList: (state.watchList).filter(id => id !== action.id)
       }) 
+    case 'LOADWATCHLIST':
+      return Object.assign({}, state, {
+        watchList: action.watchList
+      })
     default:
       return state
   }

@@ -2,7 +2,8 @@ import React from 'react'
 import { Text, 
         View,
         ScrollView } from 'react-native'
-import { connect } from 'react-redux'
+import { connect, Provider } from 'react-redux'
+import _ from 'lodash'
 import NavBar from './NavBar.js'
 import MainCard from './MainCard'
 import PriceCard from './PriceCard'
@@ -10,21 +11,26 @@ import PriceCard from './PriceCard'
 class Home extends React.Component {
   static navigationOptions = {
     header: null,
+    drawerLabel: 'Home'
+  }
+  onLearnMore = (coin) => {
+    this.props.navigation.navigate('InputTransactions', {...coin});
   }
   render(){
     const { navigate } = this.props.navigation
     const watchList = this.props.watchList
+    const watchListArray = Object.keys(watchList).map((coin) => coin)
     return (
       <View style={{flex:1}}>
-        <NavBar addNew={() => navigate('AddNew')}/>
+        <NavBar addNew={() => navigate('AddNew')} drawer={() => navigate('DrawerToggle')}/>
         <ScrollView style={{ paddingLeft:16, paddingRight:16 }} contentContainerStyle={{paddingVertical: 20}}>
           <MainCard />
           {
-            watchList.map(coin => {
+            watchListArray.map(coin => {
               return <PriceCard 
                 symbol={coin}
                 key={coin}
-                transactionPage={() => navigate('InputTransactions')}
+                transactionPage={() => this.onLearnMore({symbol: coin})}
               />
             })
           }
@@ -36,7 +42,7 @@ class Home extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    watchList: state.crypto.watchList
+    watchList: state.crypto.watchList,
   }
 }
 

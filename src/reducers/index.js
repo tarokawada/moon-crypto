@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import calculations from './calculations'
 import crypto from './crypto'
+import auth from './auth'
 
 export default combineReducers({
-  calculations,
-  crypto
+  crypto,
+  auth
 })

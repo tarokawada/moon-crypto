@@ -1,6 +1,7 @@
 import React from 'react'
-import { FlatList, Text } from "react-native";
+import { FlatList, Text } from "react-native"
 import { List, ListItem } from 'react-native-elements'
+import _ from 'lodash'
 
 const ListWithSub = props => {
   const data = props.list
@@ -16,8 +17,8 @@ const ListWithSub = props => {
                                     subtitle={item.symbol} 
                                     hideChevron 
                                     switchButton
-                                    onSwitch={()=>props.onSwitch(item.symbol, item.id)}
-                                    switched={ watchList.includes(item.id) }
+                                    onSwitch={()=>props.onSwitch(item.symbol)}
+                                    switched={ _.has(watchList, item.symbol) }
                                   />}
           keyExtractor={item => item.symbol}
           containerStyle={{ borderBottomWidth: 0 }}

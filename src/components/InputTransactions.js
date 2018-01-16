@@ -8,9 +8,10 @@ class InputTransactions extends React.Component{
   }
   render() {
     const { goBack } = this.props.navigation
+    const { symbol } = this.props.navigation.state.params
     return(
       <View>
-        <SecondaryNav title={`sdsd`} goBack={() => goBack()}/>
+        <SecondaryNav title={symbol} goBack={() => goBack()}/>
       </View>
     )
   }

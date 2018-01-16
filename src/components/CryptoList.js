@@ -4,20 +4,16 @@ import { connect } from 'react-redux'
 import SecondaryNav from './SecondaryNav'
 import ListWithSub from './ListWithSub'
 import { addToWatchList, removeFromWatchList } from '../actions/crypto'
-
+import _ from 'lodash'
 class CryptoList extends React.Component {
   static navigationOptions = {
     header: null
   }
-  onSwitch = (symbol, id) => {
+  onSwitch = (symbol) => {
     const watchList = this.props.watchList
-    const listItem = {
-      symbol,
-      id
-    }
-    watchList.includes(listItem)
-      ? this.props.removeFromWatchList(id) 
-      : this.props.addToWatchList(symbol, id)
+    _.has(watchList, symbol)
+      ? this.props.removeFromWatchList(symbol) 
+      : this.props.addToWatchList(symbol)
   }
   render(){
     const { goBack } = this.props.navigation
