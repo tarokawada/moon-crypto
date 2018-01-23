@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, Text } from "react-native"
+import { FlatList, Text, StyleSheet } from "react-native"
 import { List, ListItem } from 'react-native-elements'
 import _ from 'lodash'
 
@@ -8,7 +8,7 @@ const ListWithSub = props => {
   const watchList = props.watchList
   return (
     <List
-      containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}
+      containerStyle={styles.list}
     >
       <FlatList
           data={props.list}
@@ -21,10 +21,22 @@ const ListWithSub = props => {
                                     switched={ _.has(watchList, item.symbol) }
                                   />}
           keyExtractor={item => item.symbol}
-          containerStyle={{ borderBottomWidth: 0 }}
+          containerStyle={styles.flatList}
       />
     </List>
   )
 }
+
+const styles = StyleSheet.create(
+  {
+    list: {
+      borderTopWidth: 0,
+      borderBottomWidth: 0 
+    },
+    flatList: {
+      borderBottomWidth: 0
+    }  
+  }
+)
 
 export default ListWithSub

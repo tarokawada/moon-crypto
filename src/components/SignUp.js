@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
 import TitledInput from './TitledInput'
 
@@ -24,7 +24,7 @@ class SignUp extends React.Component {
   }
   render() {
     return(
-      <View style={{flex:1, padding:16, justifyContent: 'center', backgroundColor:'#2d2d2d'}}>
+      <View style={styles.mainContainer}>
         <TitledInput 
           placeholder='Username'
           value={this.state.email}
@@ -55,6 +55,11 @@ class SignUp extends React.Component {
     )
   }
 }
+const styles = StyleSheet.create(
+  {
+    mainContainer: {flex:1, padding:16, justifyContent: 'center', backgroundColor:'#2d2d2d'}  
+  }
+)
 const mapDispatchToProps = (dispatch) => {
   return {
     sign: (usr, pwd) => {

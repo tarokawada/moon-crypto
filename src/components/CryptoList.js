@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, List, FlatList, ListItem } from 'react-native'
+import { View, List, FlatList, ListItem, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import SecondaryNav from './SecondaryNav'
 import ListWithSub from './ListWithSub'
@@ -18,13 +18,22 @@ class CryptoList extends React.Component {
   render(){
     const { goBack } = this.props.navigation
     return (
-      <View style={{flex: 1}}>
+      <View style={styles.container}>
         <SecondaryNav title='Add New' goBack={() => goBack()}/>
         <ListWithSub list={this.props.cryptoList} onSwitch={this.onSwitch} watchList={this.props.watchList}/>
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create(
+  {
+    container: 
+      {
+        flex: 1
+      }   
+  }
+)
 
 function mapStateToProps(state) {
   return {

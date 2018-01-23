@@ -1,31 +1,22 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { Icon } from 'react-native-elements'
 
 class PriceCard extends React.Component {
   render() {
     return(
-      <View
-        style={{
-          marginTop: 16,
-          flexDirection: 'column',
-          padding: 16,
-          borderRadius: 4,
-          backgroundColor: 'white',
-          height: 135
-        }}
-      >
+      <View style={styles.mainContainer}>
         <View style={{flexDirection:'row', height: 20}}>
           <Text style={{fontSize:20, fontFamily:'agane75', flex:0.99, color:'#4f4f4f'}}>{this.props.symbol}</Text>
           <Icon name='more-vert' style={{flex:0.01}}/>
         </View>
         <View style={{flexDirection:'row', flex:1, marginTop:10}}>
           <View style={{flex: 0.5}}>
-            <Text style={{fontSize:14, fontFamily:'agane55', color:'#4f4f4f'}}>Initial Investments</Text>
+            <Text style={styles.titleFont}>Initial Investments</Text>
             <Text style={{fontSize:18, fontFamily:'agane75',marginTop:5, color:'#4f4f4f'}}>200</Text>
           </View>
           <View style={{flex: 0.5}}>
-            <Text style={{fontSize:14, fontFamily:'agane55', color:'#4f4f4f'}}>Current Value (BTC)</Text>
+            <Text style={styles.titleFont}>Current Value (BTC)</Text>
             <Text style={{fontSize:18, fontFamily:'agane75', color:'#C94151', marginTop:5, color:'#4f4f4f'}}>300</Text>
           </View>
         </View>
@@ -41,4 +32,10 @@ class PriceCard extends React.Component {
   }
 }
 
+const styles = StyleSheet.create(
+  {
+    mainContainer: {marginTop: 16, flexDirection: 'column', padding: 16, borderRadius: 4, backgroundColor: 'white', height: 135},
+    titleFont: {fontSize:14, fontFamily:'agane55', color:'#4f4f4f'},
+  }
+)
 export default PriceCard

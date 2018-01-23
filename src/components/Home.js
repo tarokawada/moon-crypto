@@ -1,7 +1,8 @@
 import React from 'react'
 import { Text, 
         View,
-        ScrollView } from 'react-native'
+        ScrollView,
+        StyleSheet } from 'react-native'
 import { connect, Provider } from 'react-redux'
 import _ from 'lodash'
 import NavBar from './NavBar.js'
@@ -21,7 +22,7 @@ class Home extends React.Component {
     const watchList = this.props.watchList
     const watchListArray = Object.keys(watchList).map((coin) => coin)
     return (
-      <View style={{flex:1}}>
+      <View style={styles.container}>
         <NavBar addNew={() => navigate('AddNew')} drawer={() => navigate('DrawerToggle')}/>
         <ScrollView style={{ paddingLeft:16, paddingRight:16 }} contentContainerStyle={{paddingVertical: 20}}>
           <MainCard />
@@ -39,6 +40,15 @@ class Home extends React.Component {
     )
   }
 }
+
+const styles = StyleSheet.create(
+  {
+    container: 
+      {
+        flex: 1
+      }   
+  }
+)
 
 function mapStateToProps(state) {
   return {
